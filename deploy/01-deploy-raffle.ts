@@ -30,8 +30,8 @@ const deployFundMe: DeployFunction = async function (
     // Get the subscription ID and fund the subscription
     // @ts-ignore
     subscriptionId = ethers.BigNumber.from(
-        // @ts-ignore
-        txReceipt.events[0].topics[1]
+      // @ts-ignore
+      txReceipt.events[0].topics[1]
     );
 
     await vrfCoordinatorV2Mock.fundSubscription(
@@ -42,12 +42,7 @@ const deployFundMe: DeployFunction = async function (
     vrfCoordinatorV2Address = networkConfig[network.name].vrfCoordinatorV2;
     subscriptionId = networkConfig[network.name].subscriptionId;
   }
-  //   address vrfCoordinatorV2, // Contract address
-  //     uint256 entraceFee,
-  //     bytes32 gasLane,
-  //     uint64 subscriptionId,
-  //     uint32 callbackGasLimit,
-  //     uint256 interval
+
   const entraceFee = networkConfig[network.name].entranceFee;
   const gasLane = networkConfig[network.name].gasLane;
   const callBackGasLimit = networkConfig[network.name].callBackGasLimit;
